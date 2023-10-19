@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Collections;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public Animator anim;
+    public float moveSpeed;
+
+    Vector3 movement;
+    Rigidbody2D rb;
+    Vector3 spriteScale;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        spriteScale = anim.transform.localScale;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        movement = new Vector3(x, 0, 0).normalized;
+        anim.SetBool("IsWalk", x != 0);
+        rb.velocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, 0);
+
+        if(x!=0 && x<0)
+        {
+            anim.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z);
+        }
+        if (x != 0 && x > 0)
+        {
+            anim.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z);
+        }
+    }
+
+}

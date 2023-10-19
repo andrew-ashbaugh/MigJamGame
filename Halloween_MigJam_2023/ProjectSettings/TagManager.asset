@@ -12,8 +12,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - Ground
+  - Creature
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 533566147
+    locked: 0
+  - name: Creature
+    uniqueID: 1730456235
     locked: 0
   - name: FG
     uniqueID: 2061578483

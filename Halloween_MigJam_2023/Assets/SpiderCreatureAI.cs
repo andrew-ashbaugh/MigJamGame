@@ -15,9 +15,14 @@ public class SpiderCreatureAI : MonoBehaviour
     public float patrolSpeed;
     public float runSpeed;
     private float speed;
+    public float stoppingDistance;
     public Rigidbody2D rb;
     public Animator anim;
     public SpiderLeg_IK legs;
+    public float searchForPlayerTime;
+  
+
+    float searchTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +39,11 @@ public class SpiderCreatureAI : MonoBehaviour
             canSeePlayer = true;
             targetLocation.position = colls[0].transform.position;
             speed = runSpeed;
+            searchTimer =0;
         }
         else
         {
             canSeePlayer = false;
-            
-
         }
 
 
@@ -55,19 +59,32 @@ public class SpiderCreatureAI : MonoBehaviour
         Vector3 movement = new Vector3(x, 0, 0).normalized;
 
         rb.velocity = new Vector3(movement.x * speed, rb.velocity.y, 0);
-    }
 
-    void Update()
-    {
         if (canSeePlayer == false)
         {
             // go to last known point
             // timer
+            searchTimer += Time.fixedDeltaTime;
+
+            if(searchTimer < searchForPlayerTime)
+            {
+                if (Vector3.Distance(transform.position, targetLocation.position) < stoppingDistance)
+                {
+                    // get viable point
+                }
+
+            }
+            
             // choose points close
 
             // timer
             // patrol
         }
+    }
+
+    void Update()
+    {
+       
 
         if (speed == runSpeed)
         {
@@ -81,6 +98,11 @@ public class SpiderCreatureAI : MonoBehaviour
         }
 
 
+    }
+
+    void GetPatrolPoint()
+    {
+        
     }
 
 

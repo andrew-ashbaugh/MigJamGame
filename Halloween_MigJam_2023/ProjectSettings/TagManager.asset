@@ -14,7 +14,7 @@ TagManager:
   - Player
   - Ground
   - Creature
-  - 
+  - Foliage
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: FG
     uniqueID: 2061578483
+    locked: 0
+  - name: UI
+    uniqueID: 1614081451
     locked: 0

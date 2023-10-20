@@ -3320,6 +3320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 277973812}
   moveSpeed: 7
+  diary: {fileID: 0}
 --- !u!50 &1060391736
 Rigidbody2D:
   serializedVersion: 4

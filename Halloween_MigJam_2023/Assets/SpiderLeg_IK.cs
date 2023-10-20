@@ -43,12 +43,12 @@ public class SpiderLeg_IK : MonoBehaviour
 
     void MoveLegs()
     {
-        if (Vector3.Distance(legLBodyTarget.position, legLTarget.position) > maxLegDist)
+        if (Vector3.Distance(legLBodyTarget.position, legLTarget.position) > maxLegDist && moveRToTarget == false)
         {
             moveLToTarget = true;
 
         }
-        if (Vector3.Distance(legRBodyTarget.position, legRTarget.position) > maxLegDist)
+        if (Vector3.Distance(legRBodyTarget.position, legRTarget.position) > maxLegDist && moveLToTarget == false)
         {
             moveRToTarget = true;
 

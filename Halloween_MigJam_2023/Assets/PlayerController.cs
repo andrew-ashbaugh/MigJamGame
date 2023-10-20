@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public float moveSpeed;
 
+    public GameObject diary;
+
     Vector3 movement;
     Rigidbody2D rb;
     Vector3 spriteScale;
@@ -26,13 +28,22 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("IsWalk", x != 0);
         rb.velocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, 0);
 
-        if(x!=0 && x<0)
+        if (diary.activeSelf == true)
         {
-            anim.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z);
+            Time.timeScale = 0;
         }
-        if (x != 0 && x > 0)
+        else
         {
-            anim.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z);
+            Time.timeScale = 1;
+
+            if (x != 0 && x < 0)
+            {
+                anim.transform.localScale = new Vector3(-spriteScale.x, spriteScale.y, spriteScale.z);
+            }
+            if (x != 0 && x > 0)
+            {
+                anim.transform.localScale = new Vector3(spriteScale.x, spriteScale.y, spriteScale.z);
+            }
         }
     }
 

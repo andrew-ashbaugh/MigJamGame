@@ -17,11 +17,40 @@ public class PlayerController : MonoBehaviour
     public bool hasRope;
     public bool hasBucket;
     public bool canMove;
+
+
+    [SerializeField] private bool isGrounded;
+    [SerializeField] private Transform groundRayTransform;
+    [SerializeField] private LayerMask groundLayer;
+
+    [SerializeField] private int numJumps;
+    [SerializeField] private int jumpForce;
+    private int jumpsLeft;
+    private float jumpTimer;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         spriteScale = anim.transform.localScale;
+    }
+
+    void FixedUpdate()
+    {
+        isGrounded = Physics2D.Linecast(transform.position, groundRayTransform.position, groundLayer);
+
+        if (isGrounded == true && jumpTimer >= 0.5f)
+        {
+            jumpsLeft = numJumps;
+            anim.SetBool("IsGrounded", true);
+            // fallTimer =0;
+        }
+        if (isGrounded == false && jumpTimer >= 0.1f)
+        {
+            anim.SetBool("IsGrounded", false);
+           
+        }
+
+        jumpTimer += Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -52,6 +81,17 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (jumpsLeft > 0)
+                {
+
+                    jumpsLeft--;
+                    jumpTimer = 0;
+                    anim.SetBool("IsWalk", false);
+                    anim.SetTrigger("IsJump");
+                }
+            }
         }
         else
         {
@@ -60,6 +100,12 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void ApplyJumpForce()
+    {
+        rb.velocity = Vector3.zero;
+        rb.AddForce(Vector3.up * jumpForce);
     }
 
 }

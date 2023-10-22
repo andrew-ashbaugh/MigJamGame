@@ -1,5 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 62e647071f9c3d84f8a86fdfe55ffa0a
+=======
+<<<<<<<< HEAD:Halloween_MigJam_2023/Assets/Scenes/Village.unity.meta
+guid: b922197b0e9bce6449f2015d87195b38
+========
+guid: 07a67dce8076595498f684d25e2fdbac
+folderAsset: yes
+>>>>>>>> 7971c7cf41b5621730876df45bcff5cdda88fb8f:Halloween_MigJam_2023/Assets/Sfx.meta
+>>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 

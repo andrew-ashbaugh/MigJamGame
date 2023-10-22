@@ -15,4 +15,19 @@ public class AnimationHelper : MonoBehaviour
         cam.m_Follow = player.transform;
 
     }
+
+    public void ApplyForce()
+    {
+       player.GetComponent<PlayerController>().ApplyJumpForce();
+    }
+
+    public void StopPlayerMovement()
+    {
+        player.GetComponent<PlayerController>().canMove = false;
+    }
+
+    public void EnablePlayerMovement()
+    {
+        player.GetComponent<PlayerController>().canMove = true;
+    }
 }

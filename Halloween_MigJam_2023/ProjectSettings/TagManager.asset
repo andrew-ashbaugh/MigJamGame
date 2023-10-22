@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Far_BG
+    uniqueID: 2543794669
+    locked: 0
   - name: BG
     uniqueID: 1142443761
     locked: 0

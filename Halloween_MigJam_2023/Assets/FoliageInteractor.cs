@@ -12,10 +12,15 @@ public class FoliageInteractor : MonoBehaviour
     public List<Transform> foliage;
     public float bendThreshold;
     public float raiseDuration = 0.1f;
+
+    public AudioSource sound;
+    public float minPitch;
+    public float maxPitch;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        sound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +35,13 @@ public class FoliageInteractor : MonoBehaviour
                 if (!foliage.Contains(colls[i].transform))
                 {
                     foliage.Add(colls[i].transform);
+                    if (sound.isPlaying == false)
+                    {
+                        sound.pitch = Random.Range(minPitch, maxPitch);
+                        sound.Play();
+                    }
+
+
                 }
             }
 
@@ -37,9 +49,9 @@ public class FoliageInteractor : MonoBehaviour
 
         for (int j = 0; j < foliage.Count; j++)
         {
-            if (Vector3.Distance(foliage[j].position, transform.position) > (radius * 2))
+            if (Vector3.Distance(foliage[j].position, transform.position) > (radius * 5f))
             {
-                if (foliage[j].transform.localRotation.eulerAngles.z > -2 && 
+                if (foliage[j].transform.localRotation.eulerAngles.z > -2 &&
                 foliage[j].transform.localRotation.eulerAngles.z < 2f)
                 {
                     foliage.Remove(foliage[j]);
@@ -67,7 +79,7 @@ public class FoliageInteractor : MonoBehaviour
                     foliage[j].transform.rotation.eulerAngles.y,
                     foliage[j].transform.rotation.eulerAngles.z + bendThreshold);
                 }
-               
+
             }
 
 

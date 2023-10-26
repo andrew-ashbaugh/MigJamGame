@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpiderLeg_IK : MonoBehaviour
 {
-   
+
     [Header("Right Leg")]
     public Transform legRTarget;
     public Transform legRBodyTarget;
@@ -25,8 +25,12 @@ public class SpiderLeg_IK : MonoBehaviour
     int LIndex;
     int RIndex;
 
-   
-    
+    public bool killPlayer;
+    public Transform killTarg;
+
+    public AudioSource legAudio;
+    public float legPitchMin;
+    public float legPitchMax;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +39,18 @@ public class SpiderLeg_IK : MonoBehaviour
 
     void FixedUpdate()
     {
-     
-        MoveLegs();
-      
+
+        if (killPlayer == false)
+        {
+            MoveLegs();
+        }
+        else
+        {
+            KillPlayer();
+        }
+        
+
+
 
     }
 
@@ -80,10 +93,12 @@ public class SpiderLeg_IK : MonoBehaviour
                 {
                     moveLToTarget = false;
                     LIndex = 0;
+                    PlayLegAudio();
                 }
                 else
                 {
                     LIndex = 1;
+                  
                 }
 
             }
@@ -91,7 +106,7 @@ public class SpiderLeg_IK : MonoBehaviour
 
     }
 
-    
+
 
     void MoveRToTarget()
     {
@@ -115,11 +130,13 @@ public class SpiderLeg_IK : MonoBehaviour
                 if (RIndex == 1)
                 {
                     moveRToTarget = false;
-                    RIndex =0;
+                    RIndex = 0;
+                    PlayLegAudio();
                 }
                 else
                 {
                     RIndex = 1;
+                   
                 }
 
             }
@@ -127,5 +144,28 @@ public class SpiderLeg_IK : MonoBehaviour
 
     }
 
-   
+    public void KillPlayer()
+    {
+        killPlayer = true;
+        if (Vector3.Distance(legRTarget.position, killTarg.position) < Vector3.Distance(legLTarget.position, killTarg.position))
+        {
+            // right leg closer
+            float step = legMoveSpeed * Time.deltaTime; // calculate distance to move
+            legRTarget.position = Vector3.MoveTowards(legRTarget.position, killTarg.position, step);
+        }
+        else
+        {
+            // left leg closer
+            float step = legMoveSpeed * Time.deltaTime; // calculate distance to move
+            legLTarget.position = Vector3.MoveTowards(legLTarget.position, killTarg.position, step);
+        }
+    }
+
+    public void PlayLegAudio()
+    {
+        legAudio.pitch = Random.Range(legPitchMin,legPitchMax);
+        legAudio.Play();
+    }
+
+
 }

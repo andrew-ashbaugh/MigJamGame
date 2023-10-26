@@ -20,6 +20,15 @@ public class SpiderJustRun : MonoBehaviour
     bool reachedEnd;
 
     public bool walk;
+    public Animator fadePane;
+    public AudioSource playerDeathNoise;
+    public CornChase cc;
+    public Transform respawnPoint;
+    public Transform player;
+
+    float deathTimer;
+    public SpiderLeg_IK spiderIK;
+    public Transform[] playerKillTargs;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +70,23 @@ public class SpiderJustRun : MonoBehaviour
                 killedPlayer = true;
                 rb.velocity = Vector3.zero;
                 anim.SetBool("IsRun", false);
-                colls[0].GetComponent<PlayerController>().canMove = false;
+                player = colls[0].transform;
+                player.GetComponent<PlayerController>().canMove = false;
+                player.GetComponent<PlayerController>().anim.SetBool("IsDead",true);
+                fadePane.SetTrigger("FadeOut");
+                playerDeathNoise.pitch = Random.Range(0.95f,1.05f);
+                playerDeathNoise.Play();
+                AssignKillTarg();
+                spiderIK.KillPlayer();
+            }
+        }
+        else
+        {
+            deathTimer += Time.fixedDeltaTime;
+            if (deathTimer >= 1)
+            {
+                ResetChase();
+                deathTimer = 0;
             }
         }
     }
@@ -95,4 +120,50 @@ public class SpiderJustRun : MonoBehaviour
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawWireSphere(transform.position + offset, radius);
     }
+
+    public void ResetChase()
+    {
+        spiderIK.killPlayer = false;
+        player.GetComponent<PlayerController>().anim.SetBool("IsDead", false);
+        cc.ResetChase();
+        killedPlayer = false;
+        player.position = respawnPoint.position;
+        player.GetComponent<PlayerController>().canMove = true;
+
+    }
+
+    public void AssignKillTarg()
+    {
+        if (spiderIK.transform.position.x > player.transform.position.x)
+        {
+            // player to the left of spider
+            if (player.GetComponent<PlayerController>().anim.transform.localScale.x < 0)
+            {
+                // facing left
+                spiderIK.killTarg = playerKillTargs[0];
+
+            }
+            else
+            {
+                //facing right
+                spiderIK.killTarg = playerKillTargs[1];
+            }
+        }
+        else
+        {
+            // player to the right of spider
+            if (player.GetComponent<PlayerController>().anim.transform.localScale.x < 0)
+            {
+                // facing left
+                spiderIK.killTarg = playerKillTargs[1];
+
+            }
+            else
+            {
+                //facing right
+                spiderIK.killTarg = playerKillTargs[0];
+            }
+        }
+    }
+
 }

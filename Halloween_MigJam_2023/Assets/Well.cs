@@ -22,12 +22,39 @@ public class Well : MonoBehaviour
     public LayerMask playerLayer;
 
     float firstEncounterTimer;
+
+    public GameObject[] wellSprites;
+    public GameObject ePrompt;
+    public bool canGoDown;
+    public bool goingDown;
+    public Animator well;
+    PlayerController pc;
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
+
+    void Update()
+    {
+        if (canGoDown == true && goingDown == false)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                goingDown = true;
+                Debug.Log("GO DOWN WELL");
+                itemList.SetActive(false);
+                wellSprites[0].SetActive(false);
+                wellSprites[1].SetActive(true);
+                ePrompt.SetActive(false);
+                well.SetBool("Descend",true);
+                pc.canMove = false;
+
+                // Switch scenes via animation helper -> well completed -> GoDownWell()
+            }
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -59,17 +86,36 @@ public class Well : MonoBehaviour
                     {
                         dogBarking.Stop();
                         colls[0].GetComponent<PlayerController>().canMove = true;
+                        pc = colls[0].GetComponent<PlayerController>();
                     }
 
-                    CheckItems(colls[0].GetComponent<PlayerController>());
-                    firstDialog.SetActive(false);
+                    if (colls[0].GetComponent<PlayerController>().hasBucket && colls[0].GetComponent<PlayerController>().hasRope)
+                    {
+                        if (goingDown == false)
+                        {
+                            CheckItems(colls[0].GetComponent<PlayerController>());
+                            ePrompt.SetActive(true);
+                            canGoDown = true;
+                        }
+
+                    }
+                    else
+                    {
+                        CheckItems(colls[0].GetComponent<PlayerController>());
+                        
+                        firstDialog.SetActive(false);
+                        canGoDown = false;
+                    }
                 }
 
             }
 
+
+
         }
         else
         {
+            canGoDown = false;
             canvas.SetActive(false);
         }
 
@@ -98,8 +144,13 @@ public class Well : MonoBehaviour
 
         if (haveBucket.activeSelf == true && haveRope.activeSelf == true)
         {
-            itemList.SetActive(false);
+            // itemList.SetActive(false);
             // do something
+            if (goingDown == false)
+            {
+                itemList.SetActive(true);
+            }
+
         }
         else
         {

@@ -9,6 +9,8 @@ public class AnimationHelper : MonoBehaviour
     public GameObject player;
     public CinemachineVirtualCamera cam;
 
+    public Animator fade;
+
     public void EndIntroCutscene()
     {
         player.SetActive(true);
@@ -29,5 +31,10 @@ public class AnimationHelper : MonoBehaviour
     public void EnablePlayerMovement()
     {
         player.GetComponent<PlayerController>().canMove = true;
+    }
+
+    public void GoDownWell()
+    {
+        fade.SetTrigger("FadeOut");
     }
 }

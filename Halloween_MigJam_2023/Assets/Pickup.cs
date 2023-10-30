@@ -8,6 +8,7 @@ public class Pickup : MonoBehaviour
     public GameObject foundPrompt;
     public bool rope;
     public bool bucket;
+    public bool lamp;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,6 +21,10 @@ public class Pickup : MonoBehaviour
             if (bucket == true)
             {
                 other.gameObject.GetComponent<PlayerController>().hasBucket = true;
+            }
+            if (lamp == true)
+            {
+                other.gameObject.GetComponent<PlayerController>().GiveLamp();
             }
             Destroy(gameObject);
             foundPrompt.SetActive(true);

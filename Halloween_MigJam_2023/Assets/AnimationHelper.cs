@@ -10,6 +10,7 @@ public class AnimationHelper : MonoBehaviour
     public CinemachineVirtualCamera cam;
 
     public Animator fade;
+    public Transform teleportTarg;
 
     public void EndIntroCutscene()
     {
@@ -36,5 +37,6 @@ public class AnimationHelper : MonoBehaviour
     public void GoDownWell()
     {
         fade.SetTrigger("FadeOut");
+        player.transform.position = teleportTarg.position;
     }
 }

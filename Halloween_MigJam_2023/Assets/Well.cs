@@ -49,7 +49,7 @@ public class Well : MonoBehaviour
                 wellSprites[1].SetActive(true);
                 ePrompt.SetActive(false);
                 well.SetBool("Descend",true);
-                pc.canMove = false;
+               
 
                 // Switch scenes via animation helper -> well completed -> GoDownWell()
             }

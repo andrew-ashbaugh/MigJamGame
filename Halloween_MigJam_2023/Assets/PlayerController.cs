@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private int numJumps;
     [SerializeField] private int jumpForce;
+    public  GameObject lampIk;
+    public GameObject lamp;
     private int jumpsLeft;
     private float jumpTimer;
     // Start is called before the first frame update
@@ -106,6 +108,12 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.AddForce(Vector3.up * jumpForce);
+    }
+
+    public void GiveLamp()
+    {
+        lampIk.SetActive(true);
+        lamp.SetActive(true);
     }
 
 }

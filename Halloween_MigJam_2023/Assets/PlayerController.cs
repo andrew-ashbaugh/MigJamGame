@@ -21,14 +21,19 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool isGrounded;
     [SerializeField] private Transform groundRayTransform;
+    [SerializeField] private Transform groundRay2Transform;
+    [SerializeField] private Transform groundRay3Transform;
     [SerializeField] private LayerMask groundLayer;
 
     [SerializeField] private int numJumps;
     [SerializeField] private int jumpForce;
-    public  GameObject lampIk;
+    public GameObject lampIk;
     public GameObject lamp;
     private int jumpsLeft;
     private float jumpTimer;
+
+    public bool hasHolyWater;
+    public bool hasDogToy;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +43,18 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.Linecast(transform.position, groundRayTransform.position, groundLayer);
+        bool grounded1 = Physics2D.Linecast(transform.position, groundRayTransform.position, groundLayer);
+        bool grounded2 = Physics2D.Linecast(transform.position, groundRay2Transform.position, groundLayer);
+        bool grounded3 = Physics2D.Linecast(transform.position, groundRay3Transform.position, groundLayer);
+
+        if (grounded1 == true || grounded2 == true || grounded3 == true)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
 
         if (isGrounded == true && jumpTimer >= 0.5f)
         {
@@ -49,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == false && jumpTimer >= 0.1f)
         {
             anim.SetBool("IsGrounded", false);
-           
+
         }
 
         jumpTimer += Time.fixedDeltaTime;

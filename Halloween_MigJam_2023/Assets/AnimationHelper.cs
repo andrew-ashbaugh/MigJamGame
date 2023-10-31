@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimationHelper : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class AnimationHelper : MonoBehaviour
 
     public Animator fade;
     public Transform teleportTarg;
+
+    public GameObject endingUI;
 
     public void EndIntroCutscene()
     {
@@ -38,5 +41,15 @@ public class AnimationHelper : MonoBehaviour
     {
         fade.SetTrigger("FadeOut");
         player.transform.position = teleportTarg.position;
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ShowEndingUI()
+    {
+        endingUI.SetActive(true);
     }
 }

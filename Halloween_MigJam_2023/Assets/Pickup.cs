@@ -9,6 +9,8 @@ public class Pickup : MonoBehaviour
     public bool rope;
     public bool bucket;
     public bool lamp;
+    public bool dogToy;
+    public bool holyWater;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,6 +27,14 @@ public class Pickup : MonoBehaviour
             if (lamp == true)
             {
                 other.gameObject.GetComponent<PlayerController>().GiveLamp();
+            }
+            if (dogToy == true)
+            {
+                other.gameObject.GetComponent<PlayerController>().hasDogToy = true;
+            }
+            if (holyWater == true)
+            {
+                other.gameObject.GetComponent<PlayerController>().hasHolyWater = true;
             }
             Destroy(gameObject);
             foundPrompt.SetActive(true);

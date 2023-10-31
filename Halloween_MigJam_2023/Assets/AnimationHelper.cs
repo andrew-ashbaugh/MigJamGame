@@ -14,7 +14,7 @@ public class AnimationHelper : MonoBehaviour
     public Transform teleportTarg;
 
     public GameObject endingUI;
-
+    public GameObject caveAmbient;
     public void EndIntroCutscene()
     {
         player.SetActive(true);
@@ -41,6 +41,7 @@ public class AnimationHelper : MonoBehaviour
     {
         fade.SetTrigger("FadeOut");
         player.transform.position = teleportTarg.position;
+        caveAmbient.SetActive(true);
     }
 
     public void GoToMainMenu()

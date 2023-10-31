@@ -29,6 +29,7 @@ public class Well : MonoBehaviour
     public bool goingDown;
     public Animator well;
     PlayerController pc;
+    public GameObject caveAmbient;
     // Start is called before the first frame update
     void Start()
     {

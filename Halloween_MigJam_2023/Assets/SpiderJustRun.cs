@@ -29,6 +29,7 @@ public class SpiderJustRun : MonoBehaviour
     float deathTimer;
     public SpiderLeg_IK spiderIK;
     public Transform[] playerKillTargs;
+    public float legRunSpeed = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -85,7 +86,8 @@ public class SpiderJustRun : MonoBehaviour
             deathTimer += Time.fixedDeltaTime;
             if (deathTimer >= 1)
             {
-                ResetChase();
+                player.position = respawnPoint.position;
+                ResetChase(player);
                 deathTimer = 0;
             }
         }
@@ -94,13 +96,13 @@ public class SpiderJustRun : MonoBehaviour
     {
         anim.SetBool("IsRun", false);
         legs.legMoveSpeed = 10;
-        Vector3 movement = new Vector3(-xDir, 0, 0).normalized;
+        Vector3 movement = new Vector3(0, 0, 0).normalized;
         rb.velocity = new Vector3(movement.x * walkSpeed, rb.velocity.y, 0);
     }
     void RUN()
     {
         anim.SetBool("IsRun", true);
-        legs.legMoveSpeed = 20;
+        legs.legMoveSpeed = legRunSpeed;
         Vector3 movement = new Vector3(xDir, 0, 0).normalized;
         rb.velocity = new Vector3(movement.x * runSpeed, rb.velocity.y, 0);
 
@@ -121,14 +123,16 @@ public class SpiderJustRun : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position + offset, radius);
     }
 
-    public void ResetChase()
+    public void ResetChase(Transform player)
     {
         spiderIK.killPlayer = false;
         player.GetComponent<PlayerController>().anim.SetBool("IsDead", false);
         cc.ResetChase();
         killedPlayer = false;
-        player.position = respawnPoint.position;
         player.GetComponent<PlayerController>().canMove = true;
+        rb.velocity = Vector3.zero;
+        anim.SetBool("IsRun", false);
+        reachedEnd = false;
 
     }
 

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -106,9 +106,379 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CultiatProps_0
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 844
+        width: 41
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef81ee34eac77e549bba6ade25ccdcdd
+      internalID: 1711123727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 842
+        width: 65
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dddd50079d6456d489b68ba315c92470
+      internalID: -1979815863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_2
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 851
+        width: 67
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b8297b6a6b2cf448c534d689f429f9
+      internalID: 118563632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_3
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 849
+        width: 101
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd060147ba0f3914ebd5f9f3ab8e0ceb
+      internalID: 1584631550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_4
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 858
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bea5c6ac9c148d4db754378a16a8aa5
+      internalID: -699415280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_5
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 631
+        width: 200
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc23dac7f4685474eae796fd317a230d
+      internalID: -1116553517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_6
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 622
+        width: 68
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674b26156dac3fe40b5768fa26da153b
+      internalID: 352416058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_7
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 746
+        width: 106
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f1d7169abaafd41acdb1738baf25e2
+      internalID: -72729721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 446
+        width: 167
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabab60c4568d2a44ad05ff964b17dfd
+      internalID: -1259141792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_9
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 452
+        width: 214
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bd4ac96e85810246b127c8693de94d1
+      internalID: -692533512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_10
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 499
+        width: 222
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e20e56b5d36315241a0d3e9837de2629
+      internalID: -128561275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_11
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 62
+        width: 207
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44363a04692f6f14587614af69a42b69
+      internalID: 1082840293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_12
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 55
+        width: 94
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13684b518c7a7aa40b1ed07090a9efb6
+      internalID: 1699288836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_13
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 32
+        width: 198
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d053232194747f74a9662236492abf89
+      internalID: 628967334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_14
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 66
+        width: 194
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fffa85a5e8817141a1f4a8ac94d9d23
+      internalID: -1639411369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_15
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 63
+        width: 153
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc57cc80088d6640b9b4eb3f2422e06
+      internalID: 912332295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CultiatProps_16
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 58
+        width: 231
+        height: 327
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7ac2b77ba5f4c409c436878674cd75
+      internalID: -149917409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +489,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CultiatProps_0: 1711123727
+      CultiatProps_1: -1979815863
+      CultiatProps_10: -128561275
+      CultiatProps_11: 1082840293
+      CultiatProps_12: 1699288836
+      CultiatProps_13: 628967334
+      CultiatProps_14: -1639411369
+      CultiatProps_15: 912332295
+      CultiatProps_16: -149917409
+      CultiatProps_2: 118563632
+      CultiatProps_3: 1584631550
+      CultiatProps_4: -699415280
+      CultiatProps_5: -1116553517
+      CultiatProps_6: 352416058
+      CultiatProps_7: -72729721
+      CultiatProps_8: -1259141792
+      CultiatProps_9: -692533512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

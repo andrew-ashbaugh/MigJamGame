@@ -52,4 +52,14 @@ public class AnimationHelper : MonoBehaviour
     {
         endingUI.SetActive(true);
     }
+
+    public void PLAY()
+    {
+       SceneManager.LoadScene("Village");
+    }
+
+    public void QUIT()
+    {
+        Application.Quit();
+    }
 }
